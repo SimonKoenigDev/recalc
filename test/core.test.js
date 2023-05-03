@@ -41,4 +41,12 @@ describe('Multiply', () => {
         expect(core.mul(2, 2)).toBe(4); 
     })
 
+    test('Debería devolver un número negativo cuando el primer parámetro es negativo.', () => {
+        expect(core.mul(-6, 5)).toBe(-30); 
+    })
+
+    test('Debería devolver un número negativo cuando el segundo parámetro es negativo.', () => {
+        expect(core.mul(6, -5)).toBe(-30); 
+    })
+
 })
