@@ -29,7 +29,10 @@ describe('Pow', () => {
         expect(core.pow(4)).toBe(16); 
     })
 
-
+    test('Da como resultado un número positivo cuando se le pasa como parámetro un número negativo.', () => {
+        expect(core.pow(-4)).toBe(16); 
+    })
+    
 })
 
 describe('Divide', () => {
@@ -42,7 +45,6 @@ describe('Multiply', () => {
     test('Deberia 2 * 2 = 4', () => {
         expect(core.mul(2, 2)).toBe(4); 
     })
-
     
     test('Debería devolver un número negativo cuando el primer parámetro es negativo.', () => {
         expect(core.mul(-6, 5)).toBe(-30); 
@@ -51,7 +53,5 @@ describe('Multiply', () => {
     test('Debería devolver un número negativo cuando el segundo parámetro es negativo.', () => {
         expect(core.mul(6, -5)).toBe(-30); 
     })
-
-    
 
 })
