@@ -39,6 +39,11 @@ describe('Divide', () => {
     test('Deberia 2 / 2 = 1', () => {
         expect(core.div(2, 2)).toBe(1); 
     })
+
+    test('Debería comprobar el error al hacer la división por 0.', () => {
+        expect(core.div(12, 0)).toBe("No se puede dividir por 0"); 
+    })
+
 })
 
 describe('Multiply', () => {
