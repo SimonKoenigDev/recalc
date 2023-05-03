@@ -28,6 +28,8 @@ describe('Pow', () => {
     test('Deberia 4 ** 2 = 16', () => {
         expect(core.pow(4)).toBe(16); 
     })
+
+
 })
 
 describe('Divide', () => {
@@ -40,5 +42,16 @@ describe('Multiply', () => {
     test('Deberia 2 * 2 = 4', () => {
         expect(core.mul(2, 2)).toBe(4); 
     })
+
+    
+    test('Debería devolver un número negativo cuando el primer parámetro es negativo.', () => {
+        expect(core.mul(-6, 5)).toBe(-30); 
+    })
+
+    test('Debería devolver un número negativo cuando el segundo parámetro es negativo.', () => {
+        expect(core.mul(6, -5)).toBe(-30); 
+    })
+
+    
 
 })
