@@ -10,6 +10,10 @@ describe('Subtract', () => {
         expect(core.sub(6, 4)).toBe(2); 
     })
 
+    test('Debería devolver un número negativo cuando el segundo parámetro es mayor al primero.', () => {
+        expect(core.sub(6, 7)).toBe(-1); 
+    })
+
 })
 
 
