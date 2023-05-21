@@ -26,11 +26,11 @@ describe('Suma', () => {
 
 describe('Pow', () => {
     test('Deberia 4 ** 2 = 16', () => {
-        expect(core.pow(4)).toBeGreaterThan(0); 
+        expect(core.pow(4)).toBe(16); 
     })
 
     test('Da como resultado un número positivo cuando se le pasa como parámetro un número negativo.', () => {
-        expect(core.pow(-4)).toBe(16); 
+        expect(core.pow(-4)).toBeGreaterThan(0); 
     })
     
 })
@@ -39,6 +39,11 @@ describe('Divide', () => {
     test('Deberia 2 / 2 = 1', () => {
         expect(core.div(2, 2)).toBe(1); 
     })
+
+    test('Debería comprobar el error al hacer la división por 0.', () => {
+        expect(core.div(12, 0)).toBe("No se puede dividir por 0"); 
+    })
+
 })
 
 describe('Multiply', () => {

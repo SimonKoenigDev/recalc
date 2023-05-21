@@ -14,8 +14,12 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    let resul=(a/b);
-    return resul;
+    if (b===0){
+        return "No se puede dividir por 0"
+    } else{
+        let resul=(a/b);
+        return resul;
+    }
 }
 
 function pow(a) { // Resuelvo bug de funcion pow
