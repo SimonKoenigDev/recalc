@@ -99,5 +99,29 @@ describe("History", () => {
       });
 });
 
+describe("History", () => {
+    test("Debería devolver todo el historial ", async () => {
+        await createHistoryEntry({
+          firstArg: 5,
+          secondArg: 2,
+          result: 3,
+          operationName: "SUB",
+        });
+        await createHistoryEntry({
+          firstArg: 9,
+          secondArg: 3,
+          result: 6,
+          operationName: "SUB",
+        });
+            
+        
+        const histories = await History.count();
+        const historiesborradas = await History.destroy({ where: {} });
+        
+        expect(historiesborradas).toEqual(histories); // La cantidad de registros borrados debe ser igual a la cantidad de registros previos a borrarlos.
+
+      });
+});
+
 
 })

@@ -1,7 +1,7 @@
 import express from 'express';
 import core from './core.js';
 
-import { createHistoryEntry, obtenerHistorial, History } from './models.js'
+import { createHistoryEntry, obtenerHistorial, History, borrarHistorial } from './models.js'
 
 const router = express.Router();
 
@@ -81,4 +81,9 @@ router.get("/historial", async function (req, res) {
     
 });
 
+router.get("/Historial/borrar", async function (req, res) {
+    await borrarHistorial();
+    return res.send({ message: 'Historial borrado' });
+  });
+  
 export default router;

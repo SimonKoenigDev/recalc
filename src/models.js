@@ -63,3 +63,11 @@ export function createTables() {
 export async function obtenerHistorial() {
     return History.findAll();
 }
+
+export async function borrarHistorial() {
+    return History.destroy({ where: {} });
+}
+
+
+
+
