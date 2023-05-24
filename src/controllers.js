@@ -47,7 +47,9 @@ router.get("/mul/:a/:b", async function (req, res) {
         return res.status(400).json('Uno de los parámetros no es un número');
     } else {
         const result = core.mul(a, b);
-        return res.send({ result });
+
+        await createHistoryEntry({ firstArg: a,secondArg: b,result, operationName: "MUL"})
+        return res.status(200).send({ result });
     }
 });
 
