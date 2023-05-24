@@ -1,15 +1,15 @@
 function add(a, b) {
-    let resul=parseInt(a+b);
+    let resul=a+b;
     return resul;
 }
 
 function subtract(a, b) {
-    let resul=parseInt(a-b);
+    let resul=a-b;
     return resul;
 }
 
 function multiply(a, b) {
-    let resul=parseInt(a*b);
+    let resul=a*b;
     return resul;
 }
 
@@ -23,7 +23,7 @@ function divide(a, b) {
 }
 
 function pow(a) { // Resuelvo bug de funcion pow
-    let resul=parseInt(a**2);
+    let resul=a**2;
     return resul;
 }
 
