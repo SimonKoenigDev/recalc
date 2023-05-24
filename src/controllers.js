@@ -65,8 +65,10 @@ router.get("/div/:a/:b", async function (req, res) {
             return res.status(400).json({ message: 'El divisor no puede ser cero' });
         }
         const result = core.div(a, b);
-        return res.json({ result });
+        await createHistoryEntry({ firstArg: a, secondArg: b, result, operationName: "DIV" });
+        return res.status(200).send({ result });
     }
+
 });
 
 
@@ -91,6 +93,6 @@ router.get("/historial", async function (req, res) {
 router.get("/Historial/borrar", async function (req, res) {
     await borrarHistorial();
     return res.send({ message: 'Historial borrado' });
-  });
+});
   
 export default router;
