@@ -35,8 +35,6 @@ describe("API divide", () => {
     });
 });
 
-})
-
 describe("API multiply", () => {
     test("Deberia responder con un 200", async () => {
         const app = await api.build()
