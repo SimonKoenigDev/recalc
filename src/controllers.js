@@ -1,7 +1,7 @@
 import express from 'express';
 import core from './core.js';
 
-import { createHistoryEntry } from './models.js'
+import { createHistoryEntry, obtenerHistorial, History } from './models.js'
 
 const router = express.Router();
 
@@ -75,5 +75,10 @@ router.get("/pow/:a", async function (req, res) {
     }
 });
 
+router.get("/historial", async function (req, res) {
+    const history = await obtenerHistorial();
+    return res.send(history);
+    
+});
 
 export default router;
