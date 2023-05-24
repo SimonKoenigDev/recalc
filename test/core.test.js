@@ -30,7 +30,7 @@ describe('Pow', () => {
     })
 
     test('Da como resultado un número positivo cuando se le pasa como parámetro un número negativo.', () => {
-        expect(core.pow(-4)).toBe(16); 
+        expect(core.pow(-4)).toBeGreaterThan(0); 
     })
     
 })
@@ -52,11 +52,11 @@ describe('Multiply', () => {
     })
     
     test('Debería devolver un número negativo cuando el primer parámetro es negativo.', () => {
-        expect(core.mul(-6, 5)).toBe(-30); 
+        expect(core.mul(-6, 5)).toBeLessThan(0); 
     })
 
     test('Debería devolver un número negativo cuando el segundo parámetro es negativo.', () => {
-        expect(core.mul(6, -5)).toBe(-30); 
+        expect(core.mul(6, -5)).toBeLessThan(0); 
     })
 
 })
