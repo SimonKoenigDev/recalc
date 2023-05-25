@@ -77,9 +77,10 @@ router.get("/pow/:a", async function (req, res) {
     const a = Number(params.a);
 
     if (isNaN(a)) {
-        return res.status(400).json('Uno de los parámetros no es un número');
+        return res.status(400).json({message: 'Uno de los parámetros no es un número'});
     } else {
         const result = core.pow(a);
+        await createHistoryEntry({ firstArg: a, secondArg: null,  result, operationName: "POW" });
         return res.send({ result });
     }
 });
