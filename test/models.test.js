@@ -1,8 +1,12 @@
+export { borrarHistorial, obtenerHistorial, History} from '../src/models.js';
 const { seed } = require('../src/seed.js')
+
 const {
     createHistoryEntry,
     History,
-    Operation
+    Operation,
+    borrarHistorial,
+    obtenerHistorial
 } = require('../src/models.js')
 
 beforeEach(async () => {
@@ -71,6 +75,7 @@ describe("History", () => {
         expect(histories[0].error).not.toBeNull()
         expect(histories[0].Operation.name).toEqual("SUB")
     })
+})
 
 describe("History", () => {
     test("Debería devolver todo el historial ", async () => {
@@ -99,29 +104,23 @@ describe("History", () => {
       });
 });
 
+
 describe("History", () => {
-    test("Debería devolver todo el historial ", async () => {
+    test("Debería borrar el historial", async () => {
         await createHistoryEntry({
-          firstArg: 5,
-          secondArg: 2,
-          result: 3,
-          operationName: "SUB",
+            firstArg: 5,
+            secondArg: 2,
+            result: 3,
+            operationName: "SUB",
         });
         await createHistoryEntry({
-          firstArg: 9,
-          secondArg: 3,
-          result: 6,
-          operationName: "SUB",
+            firstArg: 9,
+            secondArg: 3,
+            result: 6,
+            operationName: "ADD",
         });
-            
-        
-        const histories = await History.count();
-        const historiesborradas = await History.destroy({ where: {} });
-        
-        expect(historiesborradas).toEqual(histories); // La cantidad de registros borrados debe ser igual a la cantidad de registros previos a borrarlos.
-
-      });
+        await borrarHistorial();
+        const histories = await obtenerHistorial();
+        expect(histories.length).toEqual(0);
+    }); 
 });
-
-
-})
