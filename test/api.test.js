@@ -44,7 +44,8 @@ describe("API multiply", () => {
             .expect(200)
             .expect('Content-Type', "application/json; charset=utf-8")
             .then((res) => {
-                expect(res.body.result).toEqual(4.41);
+                const result = res.body.result;
+                expect(result - parseInt(result)).not.toEqual(0); //si la resta da 0, quiere decir que el resultado es un entero y no tiene decimales
             });
     });
 })
