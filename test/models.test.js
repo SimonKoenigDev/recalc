@@ -92,7 +92,7 @@ describe("History", () => {
           operationName: "SUB",
         });
             
-        const histories = await History.findAll();
+        const histories = await obtenerHistorial();
     
         expect(histories.length).toEqual(2);
         expect(histories[0].firstArg).toEqual(5);
@@ -101,6 +101,8 @@ describe("History", () => {
         expect(histories[1].firstArg).toEqual(9);
         expect(histories[1].secondArg).toEqual(3);
         expect(histories[1].result).toEqual(6);
+        expect(histories).toBeDefined(); // Verificar que se haya obtenido algún resultado
+        expect(Array.isArray(histories)).toBe(true); // Verificar que el historial sea un arreglo
       });
 });
 
