@@ -68,6 +68,10 @@ export async function borrarHistorial() {
     return History.destroy({ where: {} });
 }
 
-
+export function obtenerHistorialPorID(id) {
+    return History.findByPk(id, {
+      include: Operation
+    });
+  }
 
 
