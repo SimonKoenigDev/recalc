@@ -1,7 +1,7 @@
 import express from 'express';
 import core from './core.js';
 
-import { createHistoryEntry, obtenerHistorial, History, borrarHistorial } from './models.js'
+import { createHistoryEntry, obtenerHistorial, History, borrarHistorial, obtenerHistorialPorID } from './models.js'
 
 const router = express.Router();
 
@@ -95,5 +95,23 @@ router.get("/Historial/borrar", async function (req, res) {
     await borrarHistorial();
     return res.send({ message: 'Historial borrado' });
 });
-  
+
+router.get("/id/:id", async function (req, res) {
+    const id = req.params.id;
+
+    try {
+        const result = await obtenerHistorialPorID(id);
+
+        if (!result) {
+            return res.status(404).send({ error: 'El ID ${id} no existe en el historial' });
+        }
+
+        return res.send({ result });
+    } catch (error) {
+        console.error('Error al obtener la entrada del historial:', error);
+        return res.status(500).send({ error: 'Error al obtener la entrada del historial' });
+    }
+});
+
 export default router;
+
