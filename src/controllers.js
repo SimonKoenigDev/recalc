@@ -103,7 +103,7 @@ router.get("/id/:id", async function (req, res) {
         const result = await obtenerHistorialPorID(id);
 
         if (!result) {
-            return res.status(404).send({ error: 'El ID ${id} no existe en el historial' });
+            return res.status(404).send({ error: `El ID '${id}' no existe en el historial` });
         }
 
         return res.send({ result });
