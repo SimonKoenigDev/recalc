@@ -1,4 +1,4 @@
-export { borrarHistorial, obtenerHistorial, History} from '../src/models.js';
+export { borrarHistorial, obtenerHistorial,obtenerHistorialPorID, History} from '../src/models.js';
 const { seed } = require('../src/seed.js')
 
 const {
@@ -6,7 +6,8 @@ const {
     History,
     Operation,
     borrarHistorial,
-    obtenerHistorial
+    obtenerHistorial,
+    obtenerHistorialPorID
 } = require('../src/models.js')
 
 beforeEach(async () => {
@@ -126,3 +127,30 @@ describe("History", () => {
         expect(histories.length).toEqual(0);
     }); 
 });
+
+describe("History", () => {
+    test("Deberia poder obtener un historial por id", async () => {
+        await createHistoryEntry({
+          firstArg: 2,
+          secondArg: 3,
+          result: 5,
+          operationName: 'POW'
+        });
+  
+  
+        await createHistoryEntry({
+          firstArg: 6,
+          secondArg: 3,
+          result: 3,
+          operationName: 'DIV'
+        });
+  
+        const histories = await obtenerHistorialPorID(1);
+        expect(histories).toBeDefined(); 
+        expect(histories.id).toBe(1); 
+        expect(histories.firstArg).toEqual(2);
+        expect(histories.secondArg).toEqual(3);
+        expect(histories.result).toEqual(5);
+        expect(histories.Operation.name).toEqual('POW');    
+    })
+  })
