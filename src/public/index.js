@@ -1,7 +1,8 @@
 const $display = document.querySelector('.display')
 const $buttons = document.querySelector('.buttons')
 
-const operations = ['-'];
+const operations = ['-','+'];
+
 
 let currentDisplay = "";
 let operation = null;
@@ -19,6 +20,9 @@ $buttons.addEventListener('click', async (e) => {
 
         if (operation === "-") {
             result = await calculateSub(firstArg, secondArg)
+        }
+        if (operation === "+") {
+            result = await calculateAdd(firstArg, secondArg)
         }
 
         reset = true;
@@ -44,6 +48,13 @@ async function calculateSub(firstArg, secondArg) {
 
     return result;
 }
+async function calculateAdd(firstArg, secondArg) {
+    const resp = await fetch(`/api/v1/add/${firstArg}/${secondArg}`)
+    const { result } = await resp.json();
+
+    return result;
+}
+
 
 function renderDisplay(chars) {
     currentDisplay = chars;

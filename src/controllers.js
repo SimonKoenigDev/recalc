@@ -30,7 +30,7 @@ router.get("/add/:a/:b", async function (req, res) {
     } else {
         const result = core.add(a, b);
 
-        await createHistoryEntry({ firstArg: a, secondArg: b, result, operationName: "SUB" });
+        await createHistoryEntry({ firstArg: a, secondArg: b, result, operationName: "ADD" });
         return res.status(200).send({ result });
 
     }
