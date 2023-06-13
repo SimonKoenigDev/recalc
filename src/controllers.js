@@ -1,7 +1,7 @@
 import express from 'express';
 import core from './core.js';
 
-import { createHistoryEntry, obtenerHistorial, History, borrarHistorial, obtenerHistorialPorID } from './models.js'
+import { createHistoryEntry, obtenerHistorial,borrarHistorial, obtenerHistorialPorID } from './models.js'
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get("/sub/:a/:b", async function (req, res) {
     const b = Number(params.b);
 
     if (isNaN(a) || isNaN(b)) {
-        return res.status(400).json('Uno de los parámetros no es un número');
+        res.status(400).json('Uno de los parámetros no es un número');
     } else {
         const result = core.sub(a, b);
 
