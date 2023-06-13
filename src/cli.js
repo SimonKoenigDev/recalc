@@ -14,7 +14,7 @@ async function loop() {
             console.log("👋👋👋");
             return readline.close();
         } else {
-            if (fnName!="add" && fnName!="sub" && fnName!="mul" && fnName!="div" && fnName!="pow") { // Resuelvo bug de que no se pueda elegir una funcion erronea
+            if (fnName!=="add" && fnName!=="sub" && fnName!=="mul" && fnName!=="div" && fnName!=="pow") { // Resuelvo bug de que no se pueda elegir una funcion erronea
                 console.log("La opción no es válida");
             } else {
                 if (fnName=="pow") { // Resuelvo bug de funcion pow
