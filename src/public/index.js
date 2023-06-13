@@ -2,7 +2,7 @@ const $display = document.querySelector('.display')
 const $buttons = document.querySelector('.buttons')
 
 
-const operations = ['-', '+', '*','/','^'];
+const operations = ['-', '+', '*','/','^2'];
 
 let currentDisplay = "";
 let operation = null;
@@ -37,7 +37,7 @@ $buttons.addEventListener('click', async (e) => {
         if (operation === "*") {
             result = await calculateMul(firstArg, secondArg)
         }
-        if (operation === "^") {
+        if (operation === "^2") {
             if (firstArg > 100000){
                 result = "Error";
             }
