@@ -2,7 +2,7 @@ const $display = document.querySelector('.display')
 const $buttons = document.querySelector('.buttons')
 
 
-const operations = ['-', '+', '*','/'];
+const operations = ['-', '+', '*','/','^'];
 
 let currentDisplay = "";
 let operation = null;
@@ -37,7 +37,14 @@ $buttons.addEventListener('click', async (e) => {
         if (operation === "*") {
             result = await calculateMul(firstArg, secondArg)
         }
-
+        if (operation === "^") {
+            if (firstArg > 100000){
+                result = "Error";
+            }
+            else {
+                result = await calculatePow(firstArg)
+            }
+        }
         reset = true;
         return renderDisplay(result);
     }
@@ -82,7 +89,12 @@ async function calculateDiv(firstArg, secondArg) {
 
     return result;
 }
+async function calculatePow(firstArg) {
+    const resp = await fetch(`/api/v1/pow/${firstArg}`)
+    const { result } = await resp.json();   
 
+    return result;
+}
 function renderDisplay(chars) {
     currentDisplay = chars;
     $display.value = chars;
