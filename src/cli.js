@@ -13,11 +13,10 @@ async function loop() {
         if (fnName === "exit") {
             console.log("👋👋👋");
             return readline.close();
-        } else {
-            if (fnName!="add" && fnName!="sub" && fnName!="mul" && fnName!="div" && fnName!="pow") { // Resuelvo bug de que no se pueda elegir una funcion erronea
+        }
+            if (fnName!=="add" && fnName!=="sub" && fnName!=="mul" && fnName!=="div" && fnName!=="pow") { // Resuelvo bug de que no se pueda elegir una funcion erronea
                 console.log("La opción no es válida");
-            } else {
-                if (fnName=="pow") { // Resuelvo bug de funcion pow
+                if (fnName==="pow") { // Resuelvo bug de funcion pow
                     const numPot = await readline.question("Ingrese el numero que quiere elevar al cuadrado: ");
                     console.log(core.pow(Number(numPot)));
                 } else {
@@ -41,6 +40,5 @@ async function loop() {
             }
         }
         loop();
-    }
     
 loop();

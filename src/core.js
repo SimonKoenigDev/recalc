@@ -16,10 +16,10 @@ function multiply(a, b) {
 function divide(a, b) {
     if (b===0){
         return "No se puede dividir por 0"
-    } else{
-        let resul=(a/b);
-        return resul;
-    }
+    } 
+    let resul=(a/b);
+    return resul;
+    
 }
 
 function pow(a) { // Resuelvo bug de funcion pow
