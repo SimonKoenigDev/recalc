@@ -5,7 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.3] 21-06-2023
+
+### Added 
+
+- Se realizó la conexión del frontend con la API
+- Se agregó el botón de la potencia al cuadrado
+- Se agregaron test e2e
+- Se agregó un mensaje de error en el display al querer dividir por 0
+
+### Fixed
+
+- Se solucionaron los errores que arrojaron los test estáticos
 
 ## [1.3.2] 08-06-2023
 
