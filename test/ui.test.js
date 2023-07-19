@@ -178,4 +178,18 @@ test.describe('test', () => {
     expect(historyEntry.result).toEqual(81)
   });
 
+  test('Deberia lanzar al realizar una division por cero', async ({ page }) => {
+    await page.goto('./');
+
+    await page.getByRole('button', { name: '8' }).click()
+    await page.getByRole('button', { name: '/' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+
+    page.getByRole('button', { name: '=' }).click()
+
+    await expect(page.getByTestId('display')).toHaveValue("Error")
+
+  });
+
+
 })
