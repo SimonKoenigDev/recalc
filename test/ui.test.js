@@ -178,4 +178,35 @@ test.describe('test', () => {
     expect(historyEntry.result).toEqual(81)
   });
 
+  test('Deberia lanzar al realizar una division por cero', async ({ page }) => {
+    await page.goto('./');
+
+    await page.getByRole('button', { name: '8' }).click()
+    await page.getByRole('button', { name: '/' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+
+    page.getByRole('button', { name: '=' }).click()
+
+    await expect(page.getByTestId('display')).toHaveValue("Error")
+
+  });
+
+  
+  test('Deberia lanzar un error al querer realizar una potencia de un numero mayor a 100000', async ({ page }) => {
+    await page.goto('./');
+
+    await page.getByRole('button', { name: '3' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+    await page.getByRole('button', { name: '0' }).click()
+    await page.getByRole('button', { name: '^2' }).click()
+
+    page.getByRole('button', { name: '=' }).click()
+
+    await expect(page.getByTestId('display')).toHaveValue("Error")
+  
+  });  
+
 })
